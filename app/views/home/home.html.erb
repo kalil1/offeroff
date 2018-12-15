@@ -42,7 +42,7 @@ buy and sell locally </h1>
 
 
     <div id="pro" class="card" style="width: 18rem;">
-  <%= image_tag product.product_img.url(:product_index), class: 'card-img-top' %>
+  <%= image_tag product.product_img.url(:product_show), class: 'card-img-top' %>
   <div class="card-body">
     <h3 class="card-title"><%= product.name %> </h3>
     <p class="card-text">Price: <%= number_to_currency(product.price) %></p>

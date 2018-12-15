@@ -9,7 +9,7 @@
 
   <section class="product-images">
     <figure class="product-thumb thumb-active" data-pos="0">
-      <a href="https://placekitten.com/g/700/700" title=""><%= image_tag @product.product_img.url(:product_show), class: "pro" %></a>
+      <a ><%= image_tag @product.product_img.url(:product_show), class: "pro" %></a>
     </figure>
     <%# <figure class="product-thumb" data-pos="1"><a href="https://placekitten.com/g/400/400" title=""><img src="https://placekitten.com/g/500/500" alt="" height="600" width="600"></a></figure>
     <figure class="product-thumb" data-pos="2"><a href="https://placekitten.com/g/500/500" title=""><img src="https://placekitten.com/g/400/400" alt="" height="600" width="600"></a></figure>
@@ -37,7 +37,7 @@
       <% else %>
       <% @related_products.each do |product| %>
     <li class="col" >
-      <a href="" title="">
+      <a href="<%= product.id %>" title="">
         <figure><%= image_tag product.product_img.url(:product_show) %></figure>
         <h4> <%= product.name %> </h3>
         <b> <%= product.price %> </b>
