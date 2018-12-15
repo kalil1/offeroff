@@ -22,3 +22,38 @@
 $(document).ready(function() {
    $('select').material_select();
  });
+
+ /* Change product photo when thumbnails are clicked */
+var thumbs = document.getElementsByClassName("product-thumb"),
+    w = window.innerWidth;
+
+for (var i = 0; i < thumbs.length; i++) {
+  // Set event listener on each thumbnail
+  thumbs[i].addEventListener("click", toggleThumb, false);
+}
+
+/* Function to swap out main image when thumbnail is clicked */
+function toggleThumb(e) {
+  if (this.dataset.pos > 0 && w > 640) {
+    var pos = 1;
+    // Thumbnail so swap with main image
+    e.preventDefault();
+    // Set this image as the main one
+    this.dataset.pos = 0;
+    this.classList.add("thumb-active");
+
+    // Update position of all other images using data-pos
+    for (var i = 0; i < thumbs.length; i++) {
+      if (thumbs[i] != this) {
+        thumbs[i].dataset.pos = pos;
+        pos++;
+      }
+    }
+    // Remove active class
+    document
+      .getElementsByClassName("thumb-active")[0]
+      .classList.remove("thumb-active");
+  } else {
+    // Main image, so open a large version - don't suppress the link
+  }
+}

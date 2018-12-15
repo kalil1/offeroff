@@ -29,7 +29,8 @@
     left: 0%;
   }
   #active {
-    background-color: #2EFF74;
+    background-color: black;
+    border-radius: 12px;
     font-weight: bolder;
     font-size: 15px;
     color: black;
@@ -53,7 +54,7 @@
           <li><%= link_to "Log in", new_user_session_path %></li>
           <li><%= link_to "Sign up", new_user_registration_path %></li>
           <% else %>
-          <li id="active" style="color: black;" ><%= link_to 'Sell!', new_product_path %></li>
+          <li id="active" style="color: black;" ><%= link_to 'Upload!', new_product_path %></li>
 
           <% end %>
         </ul>

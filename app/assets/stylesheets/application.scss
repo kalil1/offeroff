@@ -10,6 +10,7 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require products
  */
 
  // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
@@ -157,4 +158,437 @@ width: 70px;
 
 nav {
   background-color: #026d6d;
+}
+
+/* Boilerplate */
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+.pro {
+  height: 350px;
+  width: 250px;
+}
+
+#html {
+  font-family: sans-serif;
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+.body {
+  margin: 2rem auto;
+  max-width: 70rem;
+  padding: 0.75rem;
+}
+
+button {
+  border: none;
+  font-size: inherit;
+}
+
+figure {
+  margin: 0;
+  overflow: hidden;
+}
+figure img {
+  display: block;
+  height: inherit;
+  width: 100%;
+}
+
+/* Product layout - essential grid classes */
+.product {
+  align-items: center;
+  display: grid;
+  grid-gap: 1.5rem;
+  grid-template-columns: auto;
+  grid-template-rows: auto 50%;
+}
+.product::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.product > header {
+  align-self: end;
+  grid-column: 2;
+  grid-row: 1;
+}
+.product [data-pos="0"] {
+  align-self: end;
+  grid-column: 1 / 4;
+  grid-row: 1;
+}
+.product [data-pos="1"] {
+  grid-column: 1;
+  grid-row: 2;
+}
+.product [data-pos="2"] {
+  grid-column: 2;
+  grid-row: 2;
+}
+.product [data-pos="3"] {
+  grid-column: 3;
+  grid-row: 2;
+}
+.product figure {
+  width: 100%;
+}
+
+.product-content {
+  align-self: start;
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.product-images {
+  display: grid;
+  grid-column: 1;
+  grid-row: 1 / 3;
+  grid-template-columns: auto auto auto;
+}
+.product-images > *:not([data-pos="0"]) {
+  align-self: start;
+  margin-top: 0.75rem;
+}
+
+/* Row of related products - min width 12rem */
+.product-related ul {
+  align-items: start;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  grid-column-gap: 0.75rem;
+  list-style: none;
+  padding: 0;
+}
+.product-related li {
+  margin-top: 0.75rem;
+}
+
+/* Product styling - theme it here */
+.product [data-pos="0"] a {
+  cursor: zoom-in;
+}
+.product h3,
+.product h1,
+.product .product-price {
+  font-weight: normal;
+  margin: 0;
+}
+.product h1 {
+  font-size: 2rem;
+  line-height: 1.3;
+}
+.product h3 {
+  font-size: inherit;
+  line-height: 1;
+  opacity: 0.6;
+}
+.product p:first-child {
+  margin-top: 0;
+}
+.product .product-price {
+  color: blue;
+  font-size: 1.25rem;
+}
+.product button.product-add {
+  color: #fff;
+  background-color: blue;
+  display: inline-block;
+  letter-spacing: 0.03em;
+  line-height: 1;
+  margin: 0.75rem 0;
+  padding: 0.75rem 1.5rem;
+  text-transform: uppercase;
+  -webkit-appearance: none;
+}
+.product button.product-add:hover, .product button.product-add:focus {
+  background-color: blue;
+}
+.product button.product-add:active {
+  background-color: navy;
+}
+
+.product-related {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+}
+.product-related ul {
+  padding: 0;
+}
+.product-related ul li {
+  margin-bottom: 0.75rem;
+}
+.product-related ul li * {
+  font-weight: normal;
+  margin: 0;
+}
+.product-related a {
+  color: inherit;
+  text-decoration: none;
+}
+.product-related h4 {
+  font-size: 1.25rem;
+}
+
+@media screen and (max-width: 40rem) {
+  .product {
+    display: block;
+  }
+
+  .product-images {
+    background-color: #eee;
+    display: flex;
+    grid-row: 2;
+    margin: 0.75rem;
+    margin-left: -0.75rem;
+    margin-right: -0.75rem;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+  }
+  .product-images *:not([data-pos="0"]) {
+    margin: 0;
+  }
+  .product-images > * {
+    flex: 0 0 95%;
+    scroll-snap-align: center;
+  }
+  .product-images > * a {
+    cursor: zoom-in;
+  }
+}
+/* ------- End Product ---------- */
+/* Just give me the grid! */
+/*
+<article class="product-grid">
+  <header>Header</header>
+  <section>Content</section>
+  <section>
+    <div>Photo</div>
+    <div>Thumb</div>
+    <div>Thumb</div>
+    <div>Thumb</div>
+  </section>
+</article>
+
+.product-grid {
+  align-items: center;
+  display: grid;
+  grid-gap: 0;
+  grid-template-columns: auto;
+  grid-template-rows: auto 50%;
+
+  > *,
+  > * > * {
+    outline: 1px solid pink;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 2rem;
+    font-size: 1em;
+    font-family: sans-serif;
+    color: pink;
+  }
+
+  > :nth-child(1) {
+    align-self: end;
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  > :nth-child(2) {
+    align-self: start;
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  > :nth-child(3) {
+    display: grid;
+    grid-column: 1;
+    grid-row: 1 / 3;
+    grid-template-columns: auto auto auto;
+
+    *:not(:first-child) {
+      align-self: start;
+    }
+
+    :nth-child(1) {
+      align-self: end;
+      grid-column: 1 / 4;
+      grid-row: 1;
+    }
+
+    :nth-child(2) {
+      grid-column: 1;
+      grid-row: 2;
+    }
+
+    :nth-child(3) {
+      grid-column: 2;
+      grid-row: 2;
+    }
+
+    :nth-child(4) {
+      grid-column: 3;
+      grid-row: 2;
+    }
+  }
+}
+
+@media screen and (max-width: 40rem) {
+  .product-grid {
+    > :nth-child(1) {
+      grid-column: 1 / 3;
+    }
+
+    :nth-child(2) {
+      grid-column: 1 / 3;
+      grid-row: 3;
+    }
+
+    :nth-child(3) {
+      grid-column: 1 / 3;
+      grid-row: 2;
+    }
+  }
+}
+*/
+
+
+li a {
+	color: #69C;
+	text-decoration: none;
+}
+li a:hover {
+	color: #F60;
+}
+li h1 {
+	font: 1.7em;
+	line-height: 110%;
+	color: #000;
+}
+li h1, h2, h3 {
+	color: #000;
+}
+li h3 {
+	border-top: solid 1px #eee;
+	padding: 20px 0;
+	margin: 20px 0 0;
+	font-size: 150%;
+}
+li p {
+	margin: 0 0 20px;
+}
+
+/* set html5 elements to block */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+#pagewrap {
+	width: 978px;
+	max-width: 96%;
+	margin: 0 auto;
+}
+.wrapper {
+	overflow: hidden;
+}
+
+/************************************************************************************
+COLUMN
+*************************************************************************************/
+.col {
+	background: #eee;
+	float: left;
+	margin-left: 3.2%;
+	margin-bottom: 30px;
+}
+.fullwidth .col {
+	float: none;
+	margin-left: 0;
+}
+/* grid4 col */
+.grid4 .col {
+	width: 22.6%;
+}
+/* grid3 col */
+.grid3 .col {
+	width: 31.2%;
+}
+/* grid2 col */
+.grid2 .col {
+	width: 48.4%;
+}
+/* clear col */
+.grid4 .col:nth-of-type(4n+1),
+.grid3 .col:nth-of-type(3n+1),
+.grid2 .col:nth-of-type(2n+1) {
+	margin-left: 0;
+	clear: left;
+}
+
+/************************************************************************************
+MEDIA QUERIES
+*************************************************************************************/
+/* reset cols to 3-column */
+@media screen and (max-width: 740px) {
+	/* grid4 */
+	.grid4 .col {
+		width: 31.2%;
+	}
+	.grid4 .col:nth-of-type(4n+1) {
+		margin-left: 3.2%;
+		clear: none;
+	}
+	.grid4 .col:nth-of-type(3n+1) {
+		margin-left: 0;
+		clear: left;
+	}
+}
+
+/* reset cols to 2-column */
+@media screen and (max-width: 600px) {
+	/* grid4 */
+	.grid4 .col {
+		width: 48.4%;
+	}
+	.grid4 .col:nth-of-type(3n+1) {
+		margin-left: 3.2%;
+		clear: none;
+	}
+	.grid4 .col:nth-of-type(2n+1) {
+		margin-left: 0;
+		clear: left;
+	}
+
+	/* grid3 */
+	.grid3 .col {
+		width: 48.4%;
+	}
+	.grid3 .col:nth-of-type(3n+1) {
+		margin-left: 3.2%;
+		clear: none;
+	}
+	.grid3 .col:nth-of-type(2n+1) {
+		margin-left: 0;
+		clear: left;
+	}
+}
+
+/* reset cols to fullwidth */
+@media screen and (max-width: 400px) {
+	/* grid4 */
+	.col {
+		width: 100% !important;
+		margin-left: 0 !important;
+		clear: none !important;
+	}
+}
+
+.buttona {
+  	color: black;
+  text-decoration: none;
 }

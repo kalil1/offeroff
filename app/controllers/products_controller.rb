@@ -17,6 +17,8 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
+    @related_products = Product.where(:category_id => @product.category_id && :id != @product.id )
+
   end
 
   # GET /products/new
