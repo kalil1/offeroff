@@ -1,0 +1,59 @@
+<div class="box">
+
+<div class="center">
+
+<h1>New Product</h1>
+
+<%= form_with(model: product, local: true) do |form| %>
+  <% if product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+      <% product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+
+
+  <div class="field">
+    <%= form.label :Product %>
+    <%= form.file_field :product_img %>
+  </div>
+
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :product_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :product_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.text_field :price, id: :product_price %>
+  </div>
+
+
+  <div class="field">
+<%= form.select(:category_id) do %>
+  <% @categories.each do |c| -%>
+    <%= content_tag(:option, c.name, value: c.id) %>
+  <% end %>
+<% end %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+</div>
+</div>

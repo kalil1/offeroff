@@ -1,0 +1,68 @@
+
+
+<div id="image_limiter">
+  <!-- <div class="imgtext">
+
+<h1  > The simplest way to <br>
+buy and sell locally </h1>
+<a  href="#">How It Works</a>
+</div>
+<!--  -->
+ <img class="img99" src="" alt="">
+ <ul class="imgtext" >
+   <% Category.all.each do |category| %>
+   <li id="cate" class="<%= 'active' if params[:category] == category.name %>">
+     <%= link_to category.name, products_path(category: category.name), {:style => 'color: white'} %>
+   </li>
+
+   <% end %>
+
+
+
+   <!-- <%# @categories.each do |cate| %>
+   <p> <#%= cate.name %> </p><br>
+   <#% end %> -->
+ </ul>
+</div>
+
+<div class="pagecontent">
+
+  <!-- <div id="cs" class="card">
+  <div id="cd" class="card-header">
+      <h1>Category</h1>
+  </div>
+</div> -->
+
+<% if @products.empty? %>
+<h1>Blah</h1>
+<% else %>
+
+
+  <% @products.each do |product| %>
+
+
+    <div id="pro" class="card" style="width: 18rem;">
+  <%= image_tag product.product_img.url(:product_index), class: 'card-img-top' %>
+  <div class="card-body">
+    <h3 class="card-title"><%= product.name %> </h3>
+    <p class="card-text">Price: <%= number_to_currency(product.price) %></p>
+    <p class="card-text">Posted: <%= time_ago_in_words(product.created_at) %></p>
+    <%= link_to "Details", product_path(product), class: "btn btn-primary" %>
+  </div>
+</div>
+  <% end %>
+<% end %>
+</div>
+
+
+<script type="text/javascript">
+$(window).load(function() {
+  $('.post-module').hover(function() {
+    $(this).find('.description').stop().animate({
+      height: "toggle",
+      opacity: "toggle"
+    }, 300);
+  });
+});
+
+</script>

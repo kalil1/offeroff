@@ -1,0 +1,160 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ */
+
+ // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+ * {
+   margin: 0;
+   padding: 0;
+
+ }
+
+ #catbtn {
+ }
+
+ .link {
+   display: inline-block;
+   border-radius: 12px;
+   margin-right: 5px;
+   margin-left: 5px;
+   padding: 6px;
+   font-weight: bolder;
+   color: white;
+   background: red; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left, orange , yellow, green, cyan, blue, violet); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right, orange, yellow, green, cyan, blue, violet); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right, orange, yellow, green, cyan, blue, violet); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, orange , yellow, green, cyan, blue, violet); /* Standard syntax (must be last) */
+
+ }
+
+ .ss {
+   width: 2px;
+ }
+
+ .card img {
+   border-radius: 12px;
+  }
+
+  .ep {
+    margin-top: 60px
+  }
+
+#cs {
+  max-height: 1000px;
+  width: 275px;
+  float: left;
+  margin-right: 18px;
+  margin-top: 18px;
+  border-radius: 18px;
+
+}
+
+#cd {
+  background-color: #056d6e;
+  border-radius: 18px;
+  text-align: center;
+}
+
+.content {
+  height: 110px;
+}
+
+ #pro {
+display: inline-block;
+margin: 7px;
+width: 70px;
+ }
+
+ .pagecontent {
+   height: 1100px;
+   margin: 20px;
+
+ }
+
+
+
+.box {
+  height: 100%;
+  width: 100%;
+}
+
+ .center {
+     margin: auto;
+     width: 25%;
+     height: 25%;
+     padding: 10px;
+ }
+
+#cate {
+  font-size: 18px;
+  display: inline-block;
+  list-style: none;
+  margin: 0 0 3px 0;
+}
+
+ .navbar {
+   width: 100%;
+
+ }
+
+.card-img-top {height: 250px;}
+
+ .nav {
+   margin-left: 10px;
+   margin-right: 10px;
+   display: inline-block;
+
+ }
+
+#bar {
+  width: 25%;
+  margin-top: 5px;
+}
+
+#fixed {
+  position: fixed;
+  background-color: #026d6d;
+  z-index: 1;
+  width: 100%;
+  height: 50px;
+}
+#image_limiter {
+    top:0;
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+    position: relative;
+    background-color: #026d6d;
+}
+
+.imgtext {
+  position: absolute;
+  top: 70%;
+  left: 35%;
+}
+
+
+
+
+
+.img99 {
+    width: 100%;
+}
+
+nav {
+  background-color: #026d6d;
+}
