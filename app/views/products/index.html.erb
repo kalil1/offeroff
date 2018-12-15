@@ -34,7 +34,7 @@
     <h3 class="card-title"><%= product.name %> </h3>
     <p class="card-text">Price: <%= number_to_currency(product.price) %></p>
     <p class="card-text">Posted: <%= time_ago_in_words(product.created_at) %></p>
-    <%= link_to "Offer", product_path(product), class: "btn btn-primary" %>
+    <%= link_to "Details", product_path(product), class: "btn btn-primary" %>
   </div>
 </div>
   <% end %>

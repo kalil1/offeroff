@@ -22,26 +22,28 @@
 
 
   <div class="field">
-    <%= form.label :Product %>
-    <%= form.file_field :product_img %>
-  </div>
-
-
-  <div class="field">
     <%= form.label :name %>
+    <br>
     <%= form.text_field :name, id: :product_name %>
   </div>
 
   <div class="field">
     <%= form.label :description %>
+    <br>
     <%= form.text_area :description, id: :product_description %>
   </div>
 
   <div class="field">
     <%= form.label :price %>
+    <br>
     <%= form.text_field :price, id: :product_price %>
   </div>
 
+
+
+  <div class="field">
+    <%= form.file_field :product_img %>
+  </div>
 
   <div class="field">
 <%= form.select(:category_id) do %>
@@ -52,7 +54,7 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Save!" %>
   </div>
 <% end %>
 </div>
