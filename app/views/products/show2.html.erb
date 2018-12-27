@@ -1,0 +1,51 @@
+<div id="html">
+  <div class="body">
+
+<article class="product">
+  <header>
+    <h3><%= @product.category.name %></h3>
+    <h1><%= @product.name %></h1>
+  </header>
+
+  <section class="product-images">
+    <figure class="product-thumb thumb-active" data-pos="0">
+      <a ><%= image_tag @product.product_img.url(:product_show), class: "pro" %></a>
+    </figure>
+    <%# <figure class="product-thumb" data-pos="1"><a href="https://placekitten.com/g/400/400" title=""><img src="https://placekitten.com/g/500/500" alt="" height="600" width="600"></a></figure>
+    <figure class="product-thumb" data-pos="2"><a href="https://placekitten.com/g/500/500" title=""><img src="https://placekitten.com/g/400/400" alt="" height="600" width="600"></a></figure>
+    <figure class="product-thumb" data-pos="3"><a href="https://placekitten.com/g/300/300" title=""><img src="https://placekitten.com/g/300/300" alt="" height="600" width="600"></a></figure> %>
+  </section>
+
+  <section class="product-content">
+    <p>$<%= @product.price %> </p>
+    <div><button class="product-add"><a class="buttona" href="https://medium.com/@mreigen/how-to-use-rails-5-action-cable-to-build-a-chat-system-with-multiple-private-rooms-with-multiple-5bf82d98a5aa">user to user chat coming soon</a></button></div>
+
+    <div class="product-description">
+      <p> <%= @product.description %> </p>
+    </div>
+  </section>
+
+<h1>Related Items</h1>
+</article>
+<section class="product-related">
+
+  <ul class="grid">
+    <div class="wrapper grid3">
+      <% if @related_products.empty? %>
+      <h3>Sorry There Are No Related Items  </h3>
+      <% else %>
+      <% @related_products.each do |product| %>
+    <li class="col" >
+      <a href="<%= product.id %>" title="">
+        <figure><%= image_tag product.product_img.url(:product_show) %></figure>
+        <h3> <%= product.name %> </h3>
+        <b> <%= product.price %> </b>
+      </a>
+    </li>
+    <% end %>
+    <% end %>
+  </div>
+  </ul>
+</section>
+</div>
+</div>

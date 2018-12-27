@@ -15,6 +15,8 @@ gem 'puma', '~> 3.7'
 
 gem 'paperclip', '~> 6.0'
 
+gem 'jquery-rails'
+
 gem 'devise', '~> 4.4', '>= 4.4.3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'

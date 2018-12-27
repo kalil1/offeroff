@@ -12,6 +12,8 @@
 //
 
 //= require rails-ujs
+//= require jquery
+//= require bootstrap-sprockets
 //= require turbolinks
 //= require react
 //= require react_ujs
@@ -57,3 +59,7 @@ function toggleThumb(e) {
     // Main image, so open a large version - don't suppress the link
   }
 }
+
+var superfish = $('#st-navbar-desktop-menu-nav').superfish({
+  //add options here if required
+});

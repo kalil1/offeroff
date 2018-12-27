@@ -1,56 +1,106 @@
 
 
-<div id="image_limiter">
-  <!-- <div class="imgtext">
-
-<h1  > The simplest way to <br>
-buy and sell locally </h1>
-<a  href="#">How It Works</a>
-</div>
-<!--  -->
- <img class="img99" src="" alt="">
- <ul class="imgtext" >
-   <% Category.all.each do |category| %>
-   <li id="cate" class="<%= 'active' if params[:category] == category.name %>">
-     <%= link_to category.name, products_path(category: category.name), {:style => 'color: white'} %>
-   </li>
-
-   <% end %>
-
-
-
-   <!-- <%# @categories.each do |cate| %>
-   <p> <#%= cate.name %> </p><br>
-   <#% end %> -->
- </ul>
-</div>
+<style media="screen">
+.pagecontent header{
+	background: #00795F;
+	width: 100%;
+	padding: 40px 0;
+	color: white;
+	text-align: center;
+}
+.pagecontent nav ul{
+	background-color: #43A286;
+	color: white;
+	padding: 0;
+	margin: 0;
+	text-align: center;
+	overflow: hidden;
+	-webkit-transition: max-height 0.4s;
+	-ms-transition: max-height 0.4s;
+	-moz-transition: max-height 0.4s;
+	-o-transition: max-height 0.4s;
+	transition: max-height 0.4s;
+}
+.pagecontent nav ul li{
+	display: inline-block;
+	padding: 20px;
+}
+.pagecontent nav ul li:hover{
+	background-color: #399077
+}
+a{
+	text-decoration: none;
+	color: inherit;
+}
+</style>
 
 <div class="pagecontent">
 
-  <!-- <div id="cs" class="card">
-  <div id="cd" class="card-header">
-      <h1>Category</h1>
-  </div>
-</div> -->
+  <header>
+    <h1>OfferOff</h1>
+	</header>
+	<nav>
+			<ul>
 
-<% if @products.empty? %>
-<h1>Blah</h1>
-<% else %>
+        <% Category.all.each do |category| %>
+        <li class="<%= 'active' if params[:category] == category.name %>">
+          <%= link_to category.name, products_path(category: category.name), {:style => 'color: white'} %>
+        </li>
+
+        <% end %>
+
+			</ul>
+		</nav>
+	<section>
+		<div class="container">
 
 
-  <% @products.each do |product| %>
+		</div>
+
+    <% if @products.empty? %>
+    <h1>Blah</h1>
+    <% else %>
+<ul class="product-list">
 
 
-    <div id="pro" class="card" style="width: 18rem;">
-  <%= image_tag product.product_img.url(:product_show), class: 'card-img-top' %>
-  <div class="card-body">
-    <h3 class="card-title"><%= product.name %> </h3>
-    <p class="card-text">Price: <%= number_to_currency(product.price) %></p>
-    <p class="card-text">Posted: <%= time_ago_in_words(product.created_at) %></p>
-    <%= link_to "Details", product_path(product), class: "btn btn-primary" %>
-  </div>
-</div>
-  <% end %>
+    <% @products.each do |product| %>
+    <li class="product-list__item product">
+    <a class="product__image-link" href="#" title="Lorem ipsum dolor sit amet">
+      <%= image_tag product.product_img.url(:product_show), class: 'product__image' %>
+    </a>
+    <div class="product__info">
+      <h2 class="product__title">
+        <a class="product__title-link" href="#" title="Lorem ipsum dolor sit amet"><%= product.name %></a>
+      </h2>
+      <h3 class="product__brand">
+        <a class="product__brand-link" href="#" title="Nulla vel libero"><%= time_ago_in_words(product.created_at)%> </a>
+      </h3>
+      <div class="product__price">
+        <%= number_to_currency(product.price) %>
+        <%= link_to "Details", product_path(product), class: "btn btn-primary" %>
+      </div>
+    </div>
+  </li>
+	<% end %>
+
+  <%# <li class="product-list__item product">
+    <a class="product__image-link" href="#" title="Donec in lacus eget odio interdum efficitur">
+      <img alt="" class="product__image" src="https://unsplash.it/200/250/?randomhttps://unsplash.it/200/300/?random"/>
+    </a>
+    <div class="product__info">
+      <h2 class="product__title">
+        <a class="product__title-link" href="#" title="Donec in lacus eget odio interdum efficitur">Donec in lacus eget odio interdum efficitur</a>
+      </h2>
+      <h3 class="product__brand">
+        <a class="product__brand-link" href="#" title="Nulla vel libero">Nulla vel libero</a>
+      </h3>
+      <div class="product__price">
+        <span class="product__old-price">&euro; 999,00</span>
+        <span class="product__special-price">&euro; 999,00</span>
+      </div>
+    </div>
+  </li>
+</ul> %>
 <% end %>
 </div>
 
