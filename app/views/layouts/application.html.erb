@@ -16,8 +16,8 @@
   <%= render 'home/navbar' unless current_page?(root_path) %>
   <body>
 
+    <%= yield %>
   </body>
-  <%= yield %>
   <br>
   <%= render 'home/footer' %>
   </html>
