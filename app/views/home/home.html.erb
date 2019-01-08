@@ -63,24 +63,15 @@ a{
 <ul class="product-list">
 
 
-    <% @products.each do |product| %>
-    <li class="product-list__item product">
-    <a class="product__image-link" href="#" title="Lorem ipsum dolor sit amet">
-      <%= image_tag product.product_img.url(:product_show), class: 'product__image' %>
-    </a>
-    <div class="product__info">
-      <h2 class="product__title">
-        <a class="product__title-link" href="#" title="Lorem ipsum dolor sit amet"><%= product.name %></a>
-      </h2>
-      <h3 class="product__brand">
-        <a class="product__brand-link" href="#" title="Nulla vel libero"><%= time_ago_in_words(product.created_at)%> </a>
-      </h3>
-      <div class="product__price">
-        <%= number_to_currency(product.price) %>
-        <%= link_to "Details", product_path(product), class: "btn btn-primary" %>
-      </div>
-    </div>
-  </li>
+	<% @products.each do |product| %>
+	<div class="card" style="width: 18rem;">
+		<%= image_tag product.product_img.url(:product_show), class: 'card-img-top' %>
+	  <div class="card-body">
+	    <h5 class="card-title"><%= product.name %></h5>
+	    <h5 class="card-title"><%= number_to_currency(product.price) %></h5>
+			<%= link_to "Details", product_path(product), class: "btn btn-primary" %>
+	  </div>
+	</div>
 	<% end %>
 
   <%# <li class="product-list__item product">
