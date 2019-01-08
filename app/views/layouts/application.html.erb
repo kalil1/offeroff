@@ -19,5 +19,5 @@
     <%= yield %>
   </body>
   <br>
-  <%= render 'home/footer' %>
+  <%= render 'home/footer' unless params[:action] == 'show' && params[:controller] == 'products'%>
   </html>
