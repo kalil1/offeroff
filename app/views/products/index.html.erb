@@ -15,27 +15,31 @@
       </span>
     <% end %>
   </h5>
-  <div class="card-body">
 
   </div>
-</div>
+<br>
+<div class="container">
+
+
+
 
 <% if @products.empty? %>
 <h1>Blah</h1>
 <% else %>
+<ul class="product-list">
 
 
-  <% @products.each do |product| %>
-
-
-    <div id="pro" class="card" style="width: 18rem;">
-  <%= image_tag product.product_img.url(:product_index), class: 'card-img-top' %>
-  <div class="card-body">
-    <h3 class="card-title"><%= product.name %> </h3>
-    <p class="card-text">Price: <%= number_to_currency(product.price) %></p>
-    <p class="card-text">Posted: <%= time_ago_in_words(product.created_at) %></p>
-    <%= link_to "Details", product_path(product), class: "btn btn-primary" %>
-  </div>
+<% @products.each do |product| %>
+<div class="card" style="width: 18rem;">
+<%= image_tag product.product_img.url(:product_show), class: 'card-img-top' %>
+<div class="card-body">
+  <h5 class="card-title"><%= product.name %></h5>
+  <h5 class="card-title"><%= number_to_currency(product.price) %></h5>
+  <%= link_to "Details", product_path(product), class: "btn btn-primary" %>
 </div>
-  <% end %>
+</div>
 <% end %>
+
+<% end %>
+</div>
+<br>
