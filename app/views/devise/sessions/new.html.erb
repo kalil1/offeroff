@@ -1,85 +1,90 @@
 <style media="screen">
   @import url('https://fonts.googleapis.com/css?family=Raleway:300,400,700');
 
-*{
-  margin: 0;
-  padding: 0;
-  outline: none;
-  box-sizing: border-box;
-  font-family: 'Raleway', sans-serif;
-}
+  *{
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+    font-family: 'Raleway', sans-serif;
+  }
 
-body{
-  background: #00795F; }
+  body{ background: #00795F; }
 
-.cont{
-  margin: 0;
-  padding: 0;
-  position: relative;
-  width: 35%;
-  height: 675px;
-  padding: 10px 25px;
-  margin: 10vh auto;
-  background: #fff;
-  border-radius: 36px;
-}
+  .cont{
+    position: relative;
+    width: 25%;
+    height: 400px;
+    padding: 10px 25px;
+    margin: 10vh auto;
+    background: #fff;
+    border-radius: 22px;
+  }
 
-.form{ width: 100%; height: 100%; }
+  .form{ width: 100%; height: 100%; }
 
-h1, h2, .user, .pass{
-  text-align: center;
-  display: block;
-}
+  h1, h2, .user, .pass{
+    text-align: center;
+    display: block;
+  }
 
-h1{
-  color: #606060;
-  font-weight: bold;
-  font-size: 40px;
-  margin: 30px auto;
-}
+  h1{
+    color: #606060;
+    font-weight: bold;
+    font-size: 40px;
+    margin: 30px auto;
+  }
 
-.user, .pass, .login{
-  width: 100%;
-  height: auto;
-  border: none;
-  border-radius: 16px;
-  margin-bottom: 50px;
-}
+  .user, .pass, .login{
+    width: 100%;
+    height: 45px;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: lighter;
+    margin-bottom: 30px;
+  }
 
-.login2 {
-  background-color: Transparent;
-  background-repeat:no-repeat;
-  border: none;
-  cursor:pointer;
-  overflow: hidden;
-  outline:none;
-}
+  .user, .pass{ background: #ecf0f1; }
 
-.user, .pass{ background: #ecf0f1; }
+  .login{
+    color: #fff;
+    cursor: pointer;
+    margin-top: 20px;
+    background: green;
+    transition: background 0.4s ease;
+    border-radius: 22px;
+  }
 
-.login{
-  color: #fff;
-  cursor: pointer;
-  margin-top: 20px;
-  background: green;
-  transition: background 0.4s ease;
-}
-
-
-h2{ color: #fff; margin-top: 25px; }
+  .login2 {
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+  }
 
 @media only screen
     and (device-width : 375px)
     and (device-height : 812px)
     and (-webkit-device-pixel-ratio : 3) {
+      h2{ color: #fff; margin-top: 25px; }
       .cont{
         width: 85%;
         height: 900px;
-        bottom: -205px;
        }
+       .user, .pass, .login{
+         width: 100%;
+         height: auto;
+         border: none;
+         border-radius: 16px;
+         margin-bottom: 50px;
+       }
+
        body{
-         overflow: hidden;
          font-weight: 30px;
+         background: #00795F;
        }
 
        input[type='checkbox'] {
@@ -95,9 +100,15 @@ h2{ color: #fff; margin-top: 25px; }
        html * {
       font-size: 66px !important;
       font-weight: bold !important;
-   }
+      overflow: hidden;
+        }
      }
 </style>
+
+
+<div class="loglogo">
+<h1>OfferOff</h1>
+</div>
 
 <div class="cont">
 
