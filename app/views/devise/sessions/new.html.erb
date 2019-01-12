@@ -10,7 +10,6 @@
 }
 
 body{
-  overflow: hidden;
   background: #00795F; }
 
 .cont{
@@ -18,11 +17,11 @@ body{
   padding: 0;
   position: relative;
   width: 35%;
-  height: 375px;
+  height: 675px;
   padding: 10px 25px;
   margin: 10vh auto;
   background: #fff;
-  border-radius: 8px;
+  border-radius: 36px;
 }
 
 .form{ width: 100%; height: 100%; }
@@ -41,12 +40,10 @@ h1{
 
 .user, .pass, .login{
   width: 100%;
-  height: 45px;
+  height: auto;
   border: none;
-  border-radius: 5px;
-  font-size: 20px;
-  font-weight: lighter;
-  margin-bottom: 30px;
+  border-radius: 16px;
+  margin-bottom: 50px;
 }
 
 .login2 {
@@ -69,28 +66,44 @@ h1{
 }
 
 
+h2{ color: #fff; margin-top: 25px; }
+
 @media only screen
     and (device-width : 375px)
     and (device-height : 812px)
     and (-webkit-device-pixel-ratio : 3) {
       .cont{
-        width: 75%;
-        height: 500px;
-        zoom: 190%;
+        width: 85%;
+        height: 900px;
+        bottom: -205px;
        }
        body{
-         overflow: hidden;}
+         overflow: hidden;
+         font-weight: 30px;
+       }
+
+       input[type='checkbox'] {
+        width: 50px;
+        height: 50px;
+        }
+
+        .lab {
+          margin-bottom: 170px;
+          margin-top: 80px;
+        }
+
+       html * {
+      font-size: 66px !important;
+      font-weight: bold !important;
+   }
      }
-
-h2{ color: #fff; margin-top: 25px; }
-
 </style>
 
 <div class="cont">
 
   <div class="form">
     <form action="">
-      <h1>Login</h1>
+      <h1 class="lab" >Login</h1>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <%= f.email_field :email, class: "user", autocomplete: "email", placeholder: "Username" %>
 
@@ -98,7 +111,7 @@ h2{ color: #fff; margin-top: 25px; }
 
       <% if devise_mapping.rememberable? -%>
       <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+      <%= f.label :remember_me, class: "remember" %>
       <br>
       <button class="login" >
       <%= f.submit "Log in ||",  class: "login2" %>
