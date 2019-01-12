@@ -1,14 +1,14 @@
 
 
 <style media="screen">
-.pagecontent header{
+.home-pagecontent header{
 	background: #00795F;
 	width: 100%;
-	padding: 40px 0;
+	padding: 30px 0;
 	color: white;
 	text-align: center;
 }
-.pagecontent nav ul{
+.home-pagecontent nav ul{
 	background-color: #43A286;
 	color: white;
 	padding: 0;
@@ -21,46 +21,59 @@
 	-o-transition: max-height 0.4s;
 	transition: max-height 0.4s;
 }
-.pagecontent nav ul li{
+.home-pagecontent nav ul li{
 	display: inline-block;
 	padding: 20px;
 }
-.pagecontent nav ul li:hover{
+.home-pagecontent nav ul li:hover{
 	background-color: #399077
 }
 a{
 	text-decoration: none;
 	color: inherit;
 }
+@media only screen
+    and (device-width : 375px)
+    and (device-height : 812px)
+    and (-webkit-device-pixel-ratio : 3) {
+		.home-pagecontent nav {
+			font-size: 40px !important;
+			height: 25px;
+
+			}
+		.home-pagehead h1 {
+			margin-top: 70px;
+			font-size: 166px !important;
+			height: 235px;
+		}
+		.home-pagemid h1 {
+			margin-top: 170px;
+			font-size: 86px !important;
+			height: 285px;
+		}
+}
 </style>
 
-<div class="pagecontent">
+<div class="home-pagecontent">
 
-  <header>
+  <header class="home-pagehead">
     <h1>OfferOff</h1>
 	</header>
 	<nav>
 			<ul>
-
         <% Category.all.each do |category| %>
         <li class="<%= 'active' if params[:category] == category.name %>">
           <%= link_to category.name, products_path(category: category.name), {:style => 'color: white'} %>
         </li>
-
         <% end %>
-
 			</ul>
 		</nav>
-		
-		<div class="container">
-
-
-		</div>
-
+	</div>
+	<div class="home-pagemid">
     <% if @products.empty? %>
-    <h1>Blah</h1>
+    		<h1><%= link_to "Upload Something....", new_product_path %></h1>
     <% else %>
-<ul class="product-list">
+		<ul class="product-list">
 
 
 	<% @products.each do |product| %>
