@@ -1,36 +1,118 @@
+<style media="screen">
+  @import url('https://fonts.googleapis.com/css?family=Raleway:300,400,700');
 
-<div class="box">
+*{
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+  font-family: 'Raleway', sans-serif;
+}
+
+body{
+  overflow: hidden;
+  background: #00795F; }
+
+.cont{
+  margin: 0;
+  padding: 0;
+  position: relative;
+  width: 35%;
+  height: 375px;
+  padding: 10px 25px;
+  margin: 10vh auto;
+  background: #fff;
+  border-radius: 8px;
+}
+
+.form{ width: 100%; height: 100%; }
+
+h1, h2, .user, .pass{
+  text-align: center;
+  display: block;
+}
+
+h1{
+  color: #606060;
+  font-weight: bold;
+  font-size: 40px;
+  margin: 30px auto;
+}
+
+.user, .pass, .login{
+  width: 100%;
+  height: 45px;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: lighter;
+  margin-bottom: 30px;
+}
+
+.login2 {
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
+}
+
+.user, .pass{ background: #ecf0f1; }
+
+.login{
+  color: #fff;
+  cursor: pointer;
+  margin-top: 20px;
+  background: green;
+  transition: background 0.4s ease;
+}
 
 
-<div class="center">
+@media only screen
+    and (device-width : 375px)
+    and (device-height : 812px)
+    and (-webkit-device-pixel-ratio : 3) {
+      .cont{
+        width: 75%;
+        height: 500px;
+        zoom: 190%;
+       }
+       body{
+         overflow: hidden;}
+     }
 
+h2{ color: #fff; margin-top: 25px; }
 
+</style>
 
-<h2>Log in</h2>
+<div class="cont">
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+  <div class="form">
+    <form action="">
+      <h1>Login</h1>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <%= f.email_field :email, class: "user", autocomplete: "email", placeholder: "Username" %>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+      <%= f.password_field :password, autocomplete: "current-password", class: "pass", placeholder: "Username" %>
 
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
+      <% if devise_mapping.rememberable? -%>
       <%= f.check_box :remember_me %>
       <%= f.label :remember_me %>
-    </div>
-  <% end -%>
+      <br>
+      <button class="login" >
+      <%= f.submit "Log in ||",  class: "login2" %>
+      <small>
+        <%= link_to "Sign up", new_user_registration_path, style: "font-weight:bold;color:lime ;" %>
+      </small>
+    </button>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
+
+    <% end -%>
+      <% end %>
+
+    </form>
   </div>
-<% end %>
 
-<%= render "devise/shared/links" %>
-</div>
+
 </div>

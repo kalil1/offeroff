@@ -1,51 +1,119 @@
+<style media="screen">
+  @import url('https://fonts.googleapis.com/css?family=Raleway:300,400,700');
 
-<div class="box">
-<div class="center">
+*{
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+  font-family: 'Raleway', sans-serif;
+}
+
+body{
+  background: #00795F; }
+
+.cont{
+  margin: 0;
+  padding: 0;
+  position: relative;
+  width: 35%;
+  height: 675px;
+  padding: 10px 25px;
+  margin: 10vh auto;
+  background: #fff;
+  border-radius: 8px;
+}
+
+.form{ width: 100%; height: 100%; }
+
+h1, h2, .user, .pass{
+  text-align: center;
+  display: block;
+}
+
+h1{
+  color: #606060;
+  font-weight: bold;
+  font-size: 40px;
+  margin: 30px auto;
+}
+
+.user, .pass, .login{
+  width: 100%;
+  height: 45px;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: lighter;
+  margin-bottom: 30px;
+}
+
+.login2 {
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
+}
+
+.user, .pass{ background: #ecf0f1; }
+
+.login{
+  color: #fff;
+  cursor: pointer;
+  margin-top: 20px;
+  background: green;
+  transition: background 0.4s ease;
+}
 
 
-<h2>Sign up</h2>
+h2{ color: #fff; margin-top: 25px; }
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+@media only screen
+and (device-width : 375px)
+and (device-height : 812px)
+and (-webkit-device-pixel-ratio : 3) {
+  .cont{
+    width: 75%;
+    height: auto;
+    zoom: 190%;
+  }
+  body{
+    overflow: hidden;}
+  }
+}
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+</style>
+
+
+
+
+<div class="cont">
+
+  <div class="form">
+      <h1>Sign up</h1>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
+
+      <%= f.email_field :email, class: "user", autocomplete: "email", placeholder: "Email"  %>
+      <%= f.text_field :username, class: "user", autocomplete: "username", placeholder: "Username"  %>
+      <%= f.text_field :firstname, class: "user", placeholder: "First Name"  %>
+      <%= f.text_field :lastname, class: "user", placeholder: "Last Name"  %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "new-password", class: "pass", placeholder: "New-Password" %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "pass", placeholder: "Confirm-Password" %>
+
+      <button class="login" >
+        <%= f.submit "Sign up ||",  class: "login2" %>
+        <small>
+          <%= link_to "Login", new_user_session_path, style: "font-weight:bold;color:lime;" %>
+        </small>
+      </button>
+      <% end %>
   </div>
 
-  <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username %>
-  </div>
 
-  <div class="field">
-    <%= f.label :firstname %><br />
-    <%= f.text_field :firstname %>
-  </div>
-
-  <div class="field">
-    <%= f.label :lastname %><br />
-    <%= f.text_field :lastname %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
-</div>
 </div>

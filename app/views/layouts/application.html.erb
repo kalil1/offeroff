@@ -13,11 +13,11 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   </head>
 
-  <%= render 'home/navbar' unless current_page?(root_path) %>
+  <%= render 'home/navbar' unless current_page?(root_path) || current_page?(new_user_registration_path) || current_page?(new_user_session_path)  %>
   <body>
 
     <%= yield %>
   </body>
   <br>
-  <%= render 'home/footer' unless params[:action] == 'show' && params[:controller] == 'products'%>
+  <%= render 'home/footer' unless params[:action] == 'show' && params[:controller] == 'products' || current_page?(new_user_registration_path) || current_page?(new_user_session_path) %>
   </html>
