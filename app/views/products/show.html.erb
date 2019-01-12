@@ -437,14 +437,14 @@ border: 1px solid #22697F;
     <div class="productStage">
         <div class="folderTab clearFix">
     <div class="breadCrumbs">
-      <a href="#">Home</a> >
-      <a href="#">Category</a> >
+    <%= link_to "Home", root_path %> >
+    <%= link_to @category.name, products_path(category: @category.name), {:style => 'color: white'} %> >
       <a href="#">Manufacturer</a> >
       <a href="#">Product Group</a>
     </div></div>
   <div class="botBorder clearFix">
       <div class="productImage">
-        <img src="http://placehold.it/300x300">
+          <%= image_tag @product.product_img.url(:product_show), style: "width:300px" %>
           <ul class="imageList">
             <li><a href="#"><img src="http://placehold.it/92x92"></a></li>
             <li><a href="#"><img src="http://placehold.it/92x92"></a></li>
@@ -453,12 +453,12 @@ border: 1px solid #22697F;
               <span><a href="#"><b>View More</b></a></span>
       </div>
       <div class="overview">
-        <h1>Cascade 220 Yarn</h1>
-        <h2>2401 - Maroon</h2>
+        <h1>Page Not Yet Complete</h1>
+        <h2> <%= @product.name %> </h2>
         <span class="rating">
           <img src="http://www.jimmybeanswool.com/secure-html/onlineec/images/stars/4_5StarBlue09.gif">
         </span>
-        <h3>$10.00</h4>
+        <h3><%= number_to_currency(@product.price) %></h3>
         <span>50+ available</span>
         <span class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam aliquam elementum est, at vestibulum augue consequat at. Donec euismod convallis felis. Nam sed molestie dolor. Proin in tortor sed augue consequat viverra.</span>
 
@@ -470,8 +470,8 @@ border: 1px solid #22697F;
             <option>Product Option 5</option>
           </select>
 
-        <div class="button add">Add to Cart</div>
-        <div class="button wish">Add to Wishlist</div>
+        <div class="button add">Make An Offer</div>
+        <div class="button wish">Open Chat</div>
 
       </div>
 
