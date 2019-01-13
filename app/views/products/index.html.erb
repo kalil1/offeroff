@@ -74,14 +74,18 @@
 <div class="mar">
 
     <div class="well well-sm">
-        <strong>Categories:</strong>
+        <h2>Categories:</h2>
         <div class="btn-group">
           <% Category.all.each do |category| %>
           <span class="<%= 'active' if params[:category] == category.name %>">
             <%= link_to category.name, products_path(category: category.name), class: 'btn btn-default btn-sm', id: "list" %>
           </span>
           <% end %>
+          <span class="active">
+            <%= link_to "Upload", new_product_path, class: 'btn btn-default btn-sm', id: "list", style: "background-color:black;color:white !important;" %>
+          </span>
         </div>
+
     </div>
     <div id="products" class="row grid-group">
         <div class="item  col-xs-4 col-lg-4">

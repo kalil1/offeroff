@@ -68,6 +68,9 @@ a{
 					<%= link_to category.name, products_path(category: category.name), class: 'btn btn-default btn-sm', id: "list" %>
 				</span>
 				<% end %>
+				<span class="active">
+					<%= link_to "Upload", new_product_path, class: 'btn btn-default btn-sm', id: "list", style: "background-color:black;color:white !important;" %>
+				</span>
 			</div>
 	</div>
 	<div class="home-pagemid">
