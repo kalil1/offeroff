@@ -7,7 +7,7 @@
 
 # Desktop View
 
-![OFFEROFF](https://github.com/kalil1/offeroff/blob/master/app/assets/images/mobile-veiw/offehome.png)
-![OFFEROFF](https://github.com/kalil1/offeroff/blob/master/app/assets/images/mobile-veiw/offerlog.png)
-![OFFEROFF](https://github.com/kalil1/offeroff/blob/master/app/assets/images/mobile-veiw/offeroff-show.png)
-![OFFEROFF](https://github.com/kalil1/offeroff/blob/master/app/assets/images/mobile-veiw/offeroff.JPG)
+![OFFEROFF](https://github.com/kalil1/offeroff/blob/master/app/assets/images/offehome.png)
+![OFFEROFF](https://github.com/kalil1/offeroff/blob/master/app/assets/images/offerlog.png)
+![OFFEROFF](https://github.com/kalil1/offeroff/blob/master/app/assets/images/offeroff-show.png)
+![OFFEROFF](https://github.com/kalil1/offeroff/blob/master/app/assets/images/offeroff.JPG)
