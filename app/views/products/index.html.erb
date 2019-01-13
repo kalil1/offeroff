@@ -1,45 +1,222 @@
-<br>
-<br>
-<% if params[:category].blank? %>
-<h2 >Products</h2>
-<% else %>
-<h2>
-<%= params[:category] %>
-</h2>
-<% end %>
-<div class="card">
-  <h5 class="card-header">
-    <% Category.all.each do |category| %>
-      <span id="catbtn" class="<%= 'active' if params[:category] == category.name %>">
-        <%= link_to category.name, products_path(category: category.name), class: 'link' %>
-      </span>
-    <% end %>
-  </h5>
+<style media="screen">
+  .glyphicon { margin-right:5px; }
+  * {
+      margin: 0 !important;
+  }
+  .thumbnail
+  {
+      margin-bottom: 20px;
+      padding: 0px;
+      -webkit-border-radius: 0px;
+      -moz-border-radius: 0px;
+      border-radius: 0px;
+  }
 
+  .item {
+      float: none;
+      width: 100%;
+      background-color: #fff;
+      margin-bottom: 10px !important;
+  }
+  .item.list-group-item:nth-of-type(odd):hover,.item.list-group-item:hover
+  {
+      background: #428bca;
+  }
+
+  .item.list-group-item .list-group-image
+  {
+      margin-right: 10px;
+  }
+  .item.list-group-item .thumbnail
+  {
+      margin-bottom: 0px;
+  }
+  .item.list-group-item .caption
+  {
+      padding: 9px 9px 0px 9px;
+  }
+  .item.list-group-item:nth-of-type(odd)
+  {
+      background: #eeeeee;
+  }
+
+  .item.list-group-item:before, .item.list-group-item:after
+  {
+      display: inline;
+      content: " ";
+  }
+
+  .item.list-group-item img
+  {
+      float: left;
+  }
+  .item.list-group-item:after
+  {
+      clear: both;
+  }
+  .list-group-item-text
+  {
+      margin: 0 0 11px;
+  }
+  .well {
+    margin: 20px !important;
+  }
+  @media only screen
+      and (device-width : 375px)
+      and (-webkit-device-pixel-ratio : 3) {
+        * {
+          font-size: 36px !important;
+          font-weight: bold !important;
+          overflow-x: hidden;
+        }
+      }
+</style>
+<div class="mar">
+
+    <div class="well well-sm">
+        <strong>Categories:</strong>
+        <div class="btn-group">
+          <% Category.all.each do |category| %>
+          <span class="<%= 'active' if params[:category] == category.name %>">
+            <%= link_to category.name, products_path(category: category.name), class: 'btn btn-default btn-sm', id: "list" %>
+          </span>
+          <% end %>
+        </div>
+    </div>
+    <div id="products" class="row grid-group">
+        <div class="item  col-xs-4 col-lg-4">
+            <div class="thumbnail">
+                <img class="group grid-group-image" src="http://placehold.it/400x250/000/fff" alt="" />
+                <div class="caption">
+                    <h4 class="group inner grid-group-item-heading">
+                        Product title</h4>
+                    <p class="group inner grid-group-item-text">
+                        Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                        sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6">
+                            <p class="lead">
+                                $21.000</p>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item  col-xs-4 col-lg-4">
+            <div class="thumbnail">
+                <img class="group grid-group-image" src="http://placehold.it/400x250/000/fff" alt="" />
+                <div class="caption">
+                    <h4 class="group inner grid-group-item-heading">
+                        Product title</h4>
+                    <p class="group inner grid-group-item-text">
+                        Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                        sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6">
+                            <p class="lead">
+                                $21.000</p>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item  col-xs-4 col-lg-4">
+            <div class="thumbnail">
+                <img class="group grid-group-image" src="http://placehold.it/400x250/000/fff" alt="" />
+                <div class="caption">
+                    <h4 class="group inner grid-group-item-heading">
+                        Product title</h4>
+                    <p class="group inner grid-group-item-text">
+                        Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                        sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6">
+                            <p class="lead">
+                                $21.000</p>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item  col-xs-4 col-lg-4">
+            <div class="thumbnail">
+                <img class="group grid-group-image" src="http://placehold.it/400x250/000/fff" alt="" />
+                <div class="caption">
+                    <h4 class="group inner grid-group-item-heading">
+                        Product title</h4>
+                    <p class="group inner grid-group-item-text">
+                        Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                        sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6">
+                            <p class="lead">
+                                $21.000</p>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item  col-xs-4 col-lg-4">
+            <div class="thumbnail">
+                <img class="group grid-group-image" src="http://placehold.it/400x250/000/fff" alt="" />
+                <div class="caption">
+                    <h4 class="group inner grid-group-item-heading">
+                        Product title</h4>
+                    <p class="group inner grid-group-item-text">
+                        Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                        sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6">
+                            <p class="lead">
+                                $21.000</p>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item  col-xs-4 col-lg-4">
+            <div class="thumbnail">
+                <img class="group grid-group-image" src="http://placehold.it/400x250/000/fff" alt="" />
+                <div class="caption">
+                    <h4 class="group inner grid-group-item-heading">
+                        Product title</h4>
+                    <p class="group inner grid-group-item-text">
+                        Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                        sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6">
+                            <p class="lead">
+                                $21.000</p>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
   </div>
-<br>
-<div class="container">
 
 
-
-
-<% if @products.empty? %>
-<h1>Blah</h1>
-<% else %>
-<ul class="product-list">
-
-
-<% @products.each do |product| %>
-<div class="card" style="width: 18rem;">
-<%= image_tag product.product_img.url(:product_show), class: 'card-img-top' %>
-<div class="card-body">
-  <h5 class="card-title"><%= product.name %></h5>
-  <h5 class="card-title"><%= number_to_currency(product.price) %></h5>
-  <%= link_to "Details", product_path(product), class: "btn btn-primary" %>
-</div>
-</div>
-<% end %>
-
-<% end %>
-</div>
-<br>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#list').onclick(function(event){event.preventDefault();$('#products .item').addClass('list-group-item');});
+    $('#grid').onclick(function(event){event.preventDefault();$('#products .item').removeClass('list-group-item');$('#products .item').addClass('grid-group-item');});
+});
+</script>

@@ -1,0 +1,158 @@
+<style media="screen">
+  * { box-sizing: border-box; }
+
+.product-grid {
+  .product {
+
+  }
+}
+
+.product-list {
+  .product {
+     width: 100%;
+     min-width: 320px;
+  }
+
+  .product-image {
+    float: left;
+    margin-right: 20px;
+  }
+}
+
+.product {
+  padding: 10px;
+  margin-top: 20px;
+  border: 1px solid #ddd;
+
+  &:hover {
+    border: 1px solid #aaa;
+    cursor: pointer;
+  }
+}
+.con {
+  width: 100%;
+  height 30px;
+}
+  @media only screen
+      and (device-width : 375px)
+      and (device-height : 812px)
+      and (-webkit-device-pixel-ratio : 3) {
+      .text {
+       font-size: 66px;
+       font-weight: bold;
+    }
+  }
+
+</style>
+
+<br>
+<br>
+<div class="text">
+
+<% if params[:category].blank? %>
+<h2 >Products</h2>
+<% else %>
+<h2>
+<%= params[:category] %>
+</h2>
+<% end %>
+<div class="card">
+  <h5 class="card-header">
+    <% Category.all.each do |category| %>
+      <span id="catbtn" class="<%= 'active' if params[:category] == category.name %>">
+        <%= link_to category.name, products_path(category: category.name), class: 'link' %>
+      </span>
+    <% end %>
+  </h5>
+
+  </div>
+</div>
+<br>
+
+<% if @products.empty? %>
+<div class="con">
+
+<a href="#" id="productGrid">Grid</a>
+|
+<a href="#" id="productList">List</a>
+
+<div id="productView" class="product-grid">
+    <div class="product span3">
+        <div class="product-image">
+            <img src="http://placehold.it/200x150" />
+        </div>
+        <h3 class="product-name">
+            <a href="#">Tuotteen nimi</a>
+        </h3>
+        <p class="product-info">
+            Kuvaajan nimi, timestamp
+        </p>
+        <p class="product-price">
+            5,99 €
+        </p>
+        <button class="btn btn-primary" type="button">Ostoskoriin</button>
+    </div>
+    <div class="product span3">
+        <a href="http://placehold.it/640x480" target="_blank">
+            <img class="product-image" src="http://placehold.it/200x150" />
+        </a>
+        <h3 class="product-name">
+            <a href="#">Tuotteen nimi</a>
+        </h3>
+        <p class="product-info">
+            Kuvaajan nimi, timestamp
+        </p>
+        <p class="product-price">
+            5,99 €
+        </p>
+        <button class="btn btn-primary" type="button">Ostoskoriin</button>
+    </div>
+    <div class="product span3">
+        <a href="http://placehold.it/640x480" target="_blank">
+            <img class="product-image" src="http://placehold.it/200x150" />
+        </a>
+        <h3 class="product-name">
+            <a href="#">Tuotteen nimi</a>
+        </h3>
+        <p class="product-info">
+            Kuvaajan nimi, timestamp
+        </p>
+        <p class="product-price">
+            5,99 €
+        </p>
+        <button class="btn btn-primary btn-add-to-cart" type="button">Ostoskoriin</button>
+    </div>
+    <div class="product span3">
+        <a href="http://placehold.it/640x480" target="_blank">
+            <img class="product-image" src="http://placehold.it/200x150" />
+        </a>
+        <h3 class="product-name">
+            <a href="#">Tuotteen nimi</a>
+        </h3>
+        <p class="product-info">
+            Kuvaajan nimi, timestamp
+        </p>
+        <p class="product-price">
+            5,99 €
+        </p>
+        <button class="btn btn-primary" type="button">Ostoskoriin</button>
+    </div>
+</div>
+<% else %>
+<ul class="product-list">
+
+
+<% @products.each do |product| %>
+<div class="card" style="width: 18rem;">
+<%= image_tag product.product_img.url(:product_show), class: 'card-img-top' %>
+<div class="card-body">
+  <h5 class="card-title"><%= product.name %></h5>
+  <h5 class="card-title"><%= number_to_currency(product.price) %></h5>
+  <%= link_to "Details", product_path(product), class: "btn btn-primary" %>
+</div>
+</div>
+<% end %>
+
+<% end %>
+</div>
+<br>

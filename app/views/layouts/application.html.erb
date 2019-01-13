@@ -19,5 +19,5 @@
     <%= yield %>
   </body>
   <br>
-  <%# <%= render 'home/footer' unless params[:action] == 'show' && params[:controller] == 'products' || current_page?(new_user_registration_path) || current_page?(new_user_session_path) %>
+  <%= render 'home/footer' unless params[:action] == 'show' && params[:controller] == 'products' || current_page?(new_user_registration_path) || current_page?(new_user_session_path) %>
   </html>
