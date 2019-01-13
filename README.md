@@ -1,24 +1,13 @@
-# README
+# Mobile View
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+![KWBOOKING](https://github.com/kalil1/kwbooking/blob/master/app/assets/images/mobile-veiw/IMG_2158.JPG)
+![KWBOOKING](https://github.com/kalil1/kwbooking/blob/master/app/assets/images/mobile-veiw/Log3.JPG)
+![KWBOOKING](https://github.com/kalil1/kwbooking/blob/master/app/assets/images/mobile-veiw/offeroff.JPG)
+![KWBOOKING](https://github.com/kalil1/kwbooking/blob/master/app/assets/images/mobile-veiw/offeroff2.JPG)
 
-Things you may want to cover:
+# Desktop View
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+![KWBOOKING](https://github.com/kalil1/kwbooking/blob/master/app/assets/images/mobile-veiw/offehome.png)
+![KWBOOKING](https://github.com/kalil1/kwbooking/blob/master/app/assets/images/mobile-veiw/offerlog.png)
+![KWBOOKING](https://github.com/kalil1/kwbooking/blob/master/app/assets/images/mobile-veiw/offeroff-show.png)
+![KWBOOKING](https://github.com/kalil1/kwbooking/blob/master/app/assets/images/mobile-veiw/offeroff.JPG)

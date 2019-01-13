@@ -110,13 +110,13 @@
 <div class="loglogo">
 <h1>OfferOff</h1>
 </div>
+<%= devise_error_messages! %>
 
 <div class="cont">
 
   <div class="form">
       <h1 class="lab" >Sign up</h1>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= devise_error_messages! %>
 
       <%= f.email_field :email, class: "user", autocomplete: "email", placeholder: "Email"  %>
       <%= f.text_field :username, class: "user", autocomplete: "username", placeholder: "Username"  %>
@@ -128,7 +128,7 @@
 
       <%= f.password_field :password, autocomplete: "new-password", class: "pass", placeholder: "New-Password" %>
       <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "pass", placeholder: "Confirm-Password" %>
-      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>  
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
       <button class="login" >
         <%= f.submit "Sign up ||",  class: "login2" %>
         <small>
