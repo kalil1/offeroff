@@ -7,6 +7,10 @@
 
 	#products {
 		position: inherit;
+	}
+
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+		position: inherit;
 
 	}
 
@@ -70,70 +74,193 @@ a{
     and (device-width : 375px)
     and (device-height : 812px)
     and (-webkit-device-pixel-ratio : 3) {
-		.home-pagecontent .well {
-			font-size: 40px !important;
-			height: 25px;
-
+			* {
+				font-size: 36px !important
+			}
+			.form-control {
+				height: inherit;
 			}
 		.home-pagehead h1 {
 			margin-top: 70px;
-			font-size: 166px !important;
 			height: 235px;
+		}
+		.sticky {
+			position: fixed;
+			top: 0;
+			width: 100%;
+			height: 166px;
+		}
+		.stuck {
+			height: 20px;
 		}
 		.home-pagemid h1 {
 			margin-top: 170px;
-			font-size: 86px !important;
 			height: 285px;
 		}
+		.header {
+			height: 525px;
+			font-size: 50px !important;
+		}
+		.header h2 {
+			font-size: 170px !important;
+		}
+		.header p {
+			font-size: 50px !important;
+		}
+}
+body {
+  margin: 0;
+  font-size: 28px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.header {
+  background-color: #f1f1f1;
+  padding: 30px;
+  text-align: center;
+}
+.header h2 {
+ font-size: 55px;
+}
+
+#navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+#navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+#navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+#navbar a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.content {
+  padding: 16px;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 60px;
 }
 </style>
-
 <div class="header">
-	<h1>My big company!</h1>
+	<h2>Offer Off</h2>
+	<p>currently in the process of testing this app in its poduction state if your lucky you might see a live change</p>
 </div>
-<ul class="row menu">
-	<% Category.all.each do |category| %>
-	<li class="<%= 'active' if params[:category] == category.name %>" ><%= link_to category.name, products_path(category: category.name)%></li>
-	<% end %>
-	<li><%= link_to "Upload", new_product_path%></li>
-</ul>
 
+
+
+<div id="navbar">
+	<% Category.all.each do |category| %>
+	<%= link_to category.name, products_path(category: category.name) %>
+	<% end %>
+	<%= link_to "Upload", new_product_path%>
+	<div class="container-fluid stuck">
+		<form class="navbar-form navbar-left" role="search">
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="Search">
+			</div>
+			<button type="submit" class="btn btn-default">Submit</button>
+		</form>
+	</div>
+</div>
+
+
+
+<div class="content">
 	<div class=" home-pagemid">
-    <% if @products.empty? %>
-    		<h1><%= link_to "Upload Something....", new_product_path %></h1>
-				<div id="products" class="row sticky grid-group">
-					<% 1000.times do %>
-					<% name = Faker::Superhero.name %>
-					<% price = Faker::Number.decimal(2, 2) %>
-					<% image = Faker::Avatar.image(name, "400x250") %>
-						<div class="item  col-xs-4 col-lg-4">
-								<div class="thumbnail">
-									<img class="group grid-group-image" src=" <%= image %> " alt="" />
-										<div class="caption">
-												<h4 class="group inner grid-group-item-heading">
-														<%= name %></h4>
-												<p class="group inner grid-group-item-text">
-														Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-														sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-												<div class="row">
-														<div class="col-xs-12 col-md-6">
-																<p class="lead">
-																		$<%= price %></p>
-														</div>
-														<div class="col-xs-12 col-md-6">
-																<a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
-														</div>
-												</div>
-										</div>
+		<% if @products.empty? %>
+		<h1><%= link_to "Upload Something....", new_product_path %></h1>
+		<div id="products" class="row grid-group">
+			<% 10.times do %>
+			<% name = Faker::Superhero.name %>
+			<% price = Faker::Number.decimal(2, 2) %>
+			<% image = Faker::Avatar.image(name, "400x250") %>
+			<div class="item  col-xs-4 col-lg-4">
+				<div class="thumbnail">
+					<img class="group grid-group-image" src=" <%= image %> " alt="" />
+					<div class="caption">
+						<h4 class="group inner grid-group-item-heading">
+							<%= name %></h4>
+							<p class="group inner grid-group-item-text">
+								Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+							</p>
+							<div class="row">
+								<div class="col-xs-12 col-md-6">
+									<a class="btn btn-success" href="http://www.jquery2dotnet.com">$<%= price %></a>
 								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<% end %>
+				<% elsif @products.count != 0 && @products.count <= 3 %>
+				<% @products.each do |product| %>
+				<div id="products" class="row grid-group">
+					<div class="item  col-xs-4 col-lg-4">
+						<div class="thumbnail">
+							<img class="group grid-group-image" src=" <%= image %> " alt="" />
+							<div class="caption">
+								<h4 class="group inner grid-group-item-heading">
+									<%= product.name %></h4>
+									<p class="group inner grid-group-item-text">
+										Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+									</p>
+									<div class="row">
+										<div class="col-xs-12 col-md-6">
+											<a class="btn btn-success" href="http://www.jquery2dotnet.com">$<%= product.price %></a>
+										</div>
+									</div>
+								</div>
+							</div>
 						</div>
 						<% end %>
+						<% 10.times do %>
+						<% name = Faker::Superhero.name %>
+						<% price = Faker::Number.decimal(2, 2) %>
+						<% image = Faker::Avatar.image(name, "400x250") %>
+						<div class="item  col-xs-4 col-lg-4">
+							<div class="thumbnail">
+								<img class="group grid-group-image" src=" <%= image %> " alt="" />
+								<div class="caption">
+									<h4 class="group inner grid-group-item-heading">
+										<%= name %></h4>
+										<p class="group inner grid-group-item-text">
+											Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+										</p>
+										<div class="row">
+											<div class="col-xs-12 col-md-6">
+												<a class="btn btn-success" href="http://www.jquery2dotnet.com">$<%= price %></a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<% end %>
 
-				</div>
-			</div>
+						</div>
+					</div>
 
 
-    <% else %>
 		<ul class="product-list">
 
 
@@ -149,6 +276,7 @@ a{
 	<% end %>
 
 <% end %>
+</div>
 </div>
 
 
