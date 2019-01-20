@@ -8,7 +8,7 @@
 
 # Desktop View
 
-![OFFEROFF](https://github.com/kalil1/offeroff/blob/master/app/assets/images/offerhome.png)
+![OFFEROFF](https://github.com/kalil1/offeroff/blob/master/app/assets/images/home.png)
+![OFFEROFF](https://github.com/kalil1/offeroff/blob/master/app/assets/images/home2.png)
 ![OFFEROFF](https://github.com/kalil1/offeroff/blob/master/app/assets/images/offerlog-error.png)
 ![OFFEROFF](https://github.com/kalil1/offeroff/blob/master/app/assets/images/offeroff-show.png)
-![OFFEROFF](https://github.com/kalil1/offeroff/blob/master/app/assets/images/offeroff.png)
