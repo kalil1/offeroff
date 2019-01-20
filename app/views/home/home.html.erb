@@ -218,7 +218,7 @@ body {
 				<div id="products" class="row grid-group">
 					<div class="item  col-xs-4 col-lg-4">
 						<div class="thumbnail">
-							<%= image_tag product.product_img.url(:product_show), class: 'group grid-group-image' %>
+							<%= image_tag product.product_img.url(:product_show), class: 'group grid-group-image', style: "width:400px;height:250px;" %>
 							<div class="caption">
 								<h4 class="group inner grid-group-item-heading">
 									<%= product.name %></h4>
