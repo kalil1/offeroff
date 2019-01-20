@@ -87,35 +87,78 @@
         </div>
 
     </div>
+    <% if @products.empty? %>
+    <h1><%= link_to "Upload Something....", new_product_path %></h1>
     <div id="products" class="row grid-group">
-        <% 10.times do %>
-        <% name = Faker::Superhero.name %>
-        <% price = Faker::Number.decimal(2, 2) %>
-        <% image = Faker::Avatar.image(name, "400x250") %>
+      <% 10.times do %>
+      <% name = Faker::Superhero.name %>
+      <% price = Faker::Number.decimal(2, 2) %>
+      <% image = Faker::Avatar.image(name) %>
+      <div class="item  col-xs-4 col-lg-4">
+        <div class="thumbnail">
+          <img class="group grid-group-image" src=" <%= image %> " alt="" />
+          <div class="caption">
+            <h4 class="group inner grid-group-item-heading">
+              <%= name %></h4>
+              <p class="group inner grid-group-item-text">
+                Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+              </p>
+              <div class="row">
+                <div class="col-xs-12 col-md-6">
+                  <a class="btn btn-success"  >$<%= price %></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% end %>
+        <% elsif @products.count != 0 && @products.count <= 3 %>
+        <% @products.each do |product| %>
+        <div id="products" class="row grid-group">
           <div class="item  col-xs-4 col-lg-4">
+            <div class="thumbnail">
+              <%= image_tag product.product_img.url(:product_show), class: 'group grid-group-image'%>
+              <div class="caption">
+                <h4 class="group inner grid-group-item-heading">
+                  <%= product.name %></h4>
+                  <p class="group inner grid-group-item-text">
+                    Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+                  </p>
+                  <div class="row">
+                    <div class="col-xs-12 col-md-6">
+                      <%= link_to "$#{product.price}", product_path(product), class: "btn btn-success" %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <% end %>
+            <% 10.times do %>
+            <% name = Faker::Superhero.name %>
+            <% price = Faker::Number.decimal(2, 2) %>
+            <% image = Faker::Avatar.image(name) %>
+            <div class="item  col-xs-4 col-lg-4">
               <div class="thumbnail">
                 <img class="group grid-group-image" src=" <%= image %> " alt="" />
-                  <div class="caption">
-                      <h4 class="group inner grid-group-item-heading">
-                          <%= name %></h4>
-                      <p class="group inner grid-group-item-text">
-                          Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                          sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                      <div class="row">
-                          <div class="col-xs-12 col-md-6">
-                              <p class="lead">
-                                  $<%= price %></p>
-                          </div>
-                          <div class="col-xs-12 col-md-6">
-                              <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
-                          </div>
+                <div class="caption">
+                  <h4 class="group inner grid-group-item-heading">
+                    <%= name %></h4>
+                    <p class="group inner grid-group-item-text">
+                      Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+                    </p>
+                    <div class="row">
+                      <div class="col-xs-12 col-md-6">
+                        <a class="btn btn-success"  >$<%= price %></a>
                       </div>
+                    </div>
                   </div>
+                </div>
               </div>
-          </div>
-        <% end %>
-    </div>
-  </div>
+              <% end %>
+              <% end %>
+
+            </div>
+            </div>
 
 
 <script type="text/javascript">
