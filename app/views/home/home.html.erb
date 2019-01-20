@@ -218,7 +218,7 @@ body {
 				<div id="products" class="row grid-group">
 					<div class="item  col-xs-4 col-lg-4">
 						<div class="thumbnail">
-							<img class="group grid-group-image" src=" <%= image %> " alt="" />
+							<%= image_tag product.product_img.url(:product_show), class: 'group grid-group-image' %>
 							<div class="caption">
 								<h4 class="group inner grid-group-item-heading">
 									<%= product.name %></h4>
@@ -259,21 +259,6 @@ body {
 
 						</div>
 					</div>
-
-
-		<ul class="product-list">
-
-
-	<% @products.each do |product| %>
-	<div class="card" style="width: 18rem;">
-		<%= image_tag product.product_img.url(:product_show), class: 'card-img-top' %>
-	  <div class="card-body">
-	    <h5 class="card-title"><%= product.name %></h5>
-	    <h5 class="card-title"><%= number_to_currency(product.price) %></h5>
-			<%= link_to "Details", product_path(product), class: "btn btn-primary" %>
-	  </div>
-	</div>
-	<% end %>
 
 <% end %>
 </div>
