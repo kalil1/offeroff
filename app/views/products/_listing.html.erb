@@ -22,7 +22,7 @@
 </style>
 <div id="products" class="row grid-group">
 <% if @products.empty? %>
-<h1><%= link_to "Upload Something....", new_product_path %></h1>
+<h1><%= link_to "Upload Something....", new_product_path %></h1><br>
 	<% 10.times do %>
 	<% name = Faker::Lorem.word.first(6) %>
 	<% price = Faker::Number.decimal(2, 2) %>
@@ -33,6 +33,10 @@
 			<div class="caption">
 				<h4 class="group inner grid-group-item-heading">
 					<%= name %></h4>
+					<p class="group inner grid-group-item-text">
+
+						Product de...
+					</p>
 					<div class="row">
 						<div class="col-xs-12 col-md-6">
 							<a class="btn btn-success"  >$<%= price %></a>
@@ -42,7 +46,7 @@
 			</div>
 		</div>
 		<% end %>
-		<% elsif @products.count != 0 && @products.count <= 3 %>
+		<% else %>
 		<% @products.each do |product| %>
 			<div class="item  col-xs-4 col-lg-4">
 				<div class="thumbnail">
@@ -50,6 +54,9 @@
 					<div class="caption">
 						<h4 class="group inner grid-group-item-heading">
 							<%= product.name %></h4>
+							<p class="group inner grid-group-item-text">
+								Product de...
+							</p>
 							<div class="row">
 								<div class="col-xs-12 col-md-6">
 									<%= link_to "$#{product.price}", product_path(product), class: "btn btn-success" %>
@@ -69,6 +76,9 @@
 						<div class="caption">
 							<h4 class="group inner grid-group-item-heading">
 								<%= name %></h4>
+								<p class="group inner grid-group-item-text">
+									Product de...
+								</p>
 								<div class="row">
 									<div class="col-xs-12 col-md-6">
 										<a class="btn btn-success"  >$<%= price %></a>
