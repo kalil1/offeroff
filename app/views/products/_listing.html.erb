@@ -1,0 +1,85 @@
+<style media="screen">
+	.btn {
+    /* display: inline-block; */
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+   	padding: 3px 6px;
+		font-size: 13px;
+    line-height: 1.428571429;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+</style>
+<div id="products" class="row grid-group">
+<% if @products.empty? %>
+<h1><%= link_to "Upload Something....", new_product_path %></h1>
+	<% 10.times do %>
+	<% name = Faker::Lorem.word.first(6) %>
+	<% price = Faker::Number.decimal(2, 2) %>
+	<% image = Faker::Avatar.image(name, "400x250") %>
+	<div class="item  col-xs-4 col-lg-4">
+		<div class="thumbnail">
+			<img class="group grid-group-image" src=" <%= image %> " alt="" />
+			<div class="caption">
+				<h4 class="group inner grid-group-item-heading">
+					<%= name %></h4>
+					<div class="row">
+						<div class="col-xs-12 col-md-6">
+							<a class="btn btn-success"  >$<%= price %></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<% end %>
+		<% elsif @products.count != 0 && @products.count <= 3 %>
+		<% @products.each do |product| %>
+			<div class="item  col-xs-4 col-lg-4">
+				<div class="thumbnail">
+					<%= image_tag product.product_img.url(:product_show), class: 'group grid-group-image', style: "width:inherit;height:inherit;" %>
+					<div class="caption">
+						<h4 class="group inner grid-group-item-heading">
+							<%= product.name %></h4>
+							<div class="row">
+								<div class="col-xs-12 col-md-6">
+									<%= link_to "$#{product.price}", product_path(product), class: "btn btn-success" %>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<% end %>
+				<% 10.times do %>
+				<% name = Faker::Lorem.word.first(6) %>
+				<% price = Faker::Number.decimal(2, 2) %>
+				<% image = Faker::Avatar.image(name, "400x250") %>
+				<div class="item  col-xs-4 col-lg-4">
+					<div class="thumbnail">
+						<img class="group grid-group-image" src=" <%= image %> " alt="" />
+						<div class="caption">
+							<h4 class="group inner grid-group-item-heading">
+								<%= name %></h4>
+								<div class="row">
+									<div class="col-xs-12 col-md-6">
+										<a class="btn btn-success"  >$<%= price %></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<% end %>
+					<% end %>
+
+				</div>
+			</div>
+			</div>

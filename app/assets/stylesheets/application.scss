@@ -38,13 +38,11 @@ height: 100%;
 
 body {
   -moz-box-sizing: border-box;
-box-sizing: border-box;
-position: relative;
-min-height: 100%;
-padding-bottom: 150px; /* same as footer's height */
+  box-sizing: border-box;
+  position: relative;
+  min-height: 100%;
 }
 footer {
-  position: absolute;
   bottom: 0; /* you already have this */
 }
 .container {
@@ -74,7 +72,6 @@ padding: 45px 50px;
 
 .footer-distributed .footer-left p {
 color: #8f9296;
-font-size: 14px;
 }
 /* Footer links */
 
