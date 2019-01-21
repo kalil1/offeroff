@@ -23,7 +23,7 @@
 <div id="products" class="row grid-group">
 <% if @products.empty? %>
 <h1><%= link_to "Upload Something....", new_product_path %></h1><br>
-	<% 10.times do %>
+	<% 25.times do %>
 	<% name = Faker::Lorem.word.first(6) %>
 	<% price = Faker::Number.decimal(2, 2) %>
 	<% image = Faker::Avatar.image(name, "400x250") %>
@@ -66,7 +66,9 @@
 					</div>
 				</div>
 				<% end %>
-				<% 10.times do %>
+				<% pros = @products.count.to_i %>
+				<% fillercount = 25 - @products.count.to_i %>
+				<% fillercount.times do %>
 				<% name = Faker::Lorem.word.first(6) %>
 				<% price = Faker::Number.decimal(2, 2) %>
 				<% image = Faker::Avatar.image(name, "400x250") %>
