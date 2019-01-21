@@ -1,0 +1,77 @@
+<style media="screen">
+  h1 a {
+    color: black;
+  }
+</style>
+<% if @products.empty? %>
+<h1><%= link_to "Upload Something....", new_product_path %></h1>
+<% 10.times do %>
+<% name = Faker::Lorem.word %>
+<% price = Faker::Number.decimal(2, 2) %>
+<% image = Faker::Avatar.image(name) %>
+<div class="item  col-xs-4 col-lg-4">
+  <div class="thumbnail">
+    <img class="group grid-group-image" src=" <%= image %> " alt="" />
+    <div class="caption">
+      <h4 class="group inner grid-group-item-heading">
+        <%= name %></h4>
+        <p class="group inner grid-group-item-text">
+          Product description...
+        </p>
+        <div class="row">
+          <div class="col-xs-12 col-md-6">
+            <a class="btn btn-success"  >$<%= price %></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+  <% elsif @products.count != 0 && @products.count <= 3 %>
+  <h1><%= link_to "Upload Something....", new_product_path unless @products.count >= 3 %></h1>
+
+  <% @products.each do |product| %>
+  <div class="item  col-xs-4 col-lg-4">
+    <div class="thumbnail">
+      <%= image_tag product.product_img.url(:product_show), class: 'group grid-group-image', style: "max-height:300px;"%>
+      <div class="caption">
+        <h4 class="group inner grid-group-item-heading">
+          <%= product.name %></h4>
+          <p class="group inner grid-group-item-text">
+            Product description...
+          </p>
+          <div class="row">
+            <div class="col-xs-12 col-md-6">
+              <%= link_to "$#{product.price}", product_path(product), class: "btn btn-success" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% end %>
+    <% fillercount = 9 - @products.count.to_i  %>
+    <% if fillercount > 0 %>
+    <%  fillercount.times do %>
+    <% name = Faker::Lorem.word %>
+    <% price = Faker::Number.decimal(2, 2) %>
+    <% image = Faker::Avatar.image(name) %>
+    <div class="item  col-xs-4 col-lg-4">
+      <div class="thumbnail">
+        <img class="group grid-group-image" src=" <%= image %> " alt="" />
+        <div class="caption">
+          <h4 class="group inner grid-group-item-heading">
+            <%= name %></h4>
+            <p class="group inner grid-group-item-text">
+              Product description...
+            </p>
+            <div class="row">
+              <div class="col-xs-12 col-md-6">
+                <a class="btn btn-success"  >$<%= price %></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% end %>
+      <% end %>
+      <% end %>
