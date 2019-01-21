@@ -12,14 +12,13 @@
   body{ background: #00795F; }
 
   .cont{
-    top: 10px;
-    margin: auto;
-    border-radius: 22px;
     position: relative;
     width: 25%;
-    height: 700px;
+    height: 400px;
     padding: 10px 25px;
+    margin: 10vh auto;
     background: #fff;
+    border-radius: 22px;
   }
 
   .form{ width: 100%; height: 100%; }
@@ -33,7 +32,7 @@
     color: #606060;
     font-weight: bold;
     font-size: 40px;
-    margin: 20px auto;
+    margin: 30px auto;
   }
 
   .user, .pass, .login{
@@ -51,7 +50,7 @@
   .login{
     color: #fff;
     cursor: pointer;
-    margin-top: 60px;
+    margin-top: 20px;
     background: green;
     transition: background 0.4s ease;
     border-radius: 22px;
@@ -69,9 +68,10 @@
 @media only screen
     and (device-width : 375px)
     and (-webkit-device-pixel-ratio : 3) {
+      h2{ color: #fff; margin-top: 25px; }
       .cont{
         width: 85%;
-        height: 1450px;
+        height: 910px;
        }
        .user, .pass, .login{
          width: 100%;
@@ -80,36 +80,29 @@
          border-radius: 16px;
          margin-bottom: 50px;
        }
+
        body{
          font-weight: 30px;
+         background: #00795F;
        }
 
        input[type='checkbox'] {
-        width: 50px;
-        height: 50px;
-        }
-
-        .loglogo {
-          height: 200px;
-          width: 100%;
+        width: 30px;
+        height: 30px;
         }
 
         .lab {
-          margin-bottom: 160px
+          margin: 60px;
         }
 
        html * {
-      font-size: 66px !important;
+      font-size: 32px !important;
       font-weight: bold !important;
       overflow: hidden;
-   }
+        }
      }
 </style>
 
-
-<div class="loglogo">
-<h1>OfferOff</h1>
-</div>
 <%= devise_error_messages! %>
 
 <div class="cont">
