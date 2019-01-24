@@ -113,7 +113,7 @@
     <form action="">
       <h1 class="lab" >Login</h1>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <%= f.email_field :email, class: "user", autocomplete: "email", placeholder: "Username" %>
+      <%= f.email_field :email, class: "user", autocomplete: "email", placeholder: "Email" %>
 
       <%= f.password_field :password, autocomplete: "current-password", class: "pass", placeholder: "Password" %>
       <%= hidden_field_tag :authenticity_token, form_authenticity_token %>

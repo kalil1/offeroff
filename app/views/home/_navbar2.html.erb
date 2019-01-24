@@ -132,19 +132,22 @@ html, body {
   .menu > li:not(:last-child) {
     border-bottom: 1px solid #444;
   }
+ a {
+    text-decoration: none;
+  }
 }
 </style>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
   <section class="top-nav">
-    <div>
-      Offer Off
+    <div class="menua" >
+      <%= link_to "OFFER OFF", root_path %>
     </div>
     <input id="menu-toggle" type="checkbox" />
     <label class='menu-button-container' for="menu-toggle">
     <div class='menu-button'></div>
   </label>
-    <ul class="menu">
+    <ul class="menu menua">
       <li><%= link_to "Sell!!", new_product_path%></li>
       <% if !user_signed_in? %>
       <li><%= link_to "Sign In", new_user_session_path %></li>
