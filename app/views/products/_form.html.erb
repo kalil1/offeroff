@@ -1,61 +1,255 @@
-<div class="box">
-
-<div class="center">
-
-<h1>New Product</h1>
-
-<%= form_with(model: product, local: true) do |form| %>
-  <% if product.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
-
-      <ul>
-      <% product.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<style media="screen">
+  @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
 
 
 
+#feedback-page{
+	text-align:center;
+}
+
+#form-main{
+  background:url(http://thekitemap.com/images/feedback-img.jpg) no-repeat;
+  background-size: cover;
+  height:1000px;
+	width:100%;
+	float:left;
+	padding-top:0px;
+}
+
+#form-div {
+	background-color:rgba(72,72,72,0.4);
+	padding-left:35px;
+	padding-right:35px;
+	padding-top:35px;
+	padding-bottom:50px;
+	width: 450px;
+	float: left;
+	left: 50%;
+	position: absolute;
+  margin-top:30px;
+	margin-left: -260px;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+}
+
+.feedback-input {
+	color:#3c3c3c;
+	font-family: Helvetica, Arial, sans-serif;
+  font-weight:500;
+	font-size: 18px;
+	border-radius: 0;
+	line-height: 22px;
+	background-color: #fbfbfb;
+	padding: 13px 13px 13px 54px;
+	margin-bottom: 10px;
+	width:100%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+  border: 3px solid rgba(0,0,0,0);
+}
+
+.feedback-input:focus{
+	background: #fff;
+	box-shadow: 0;
+	border: 3px solid #3498db;
+	color: #3498db;
+	outline: none;
+  padding: 13px 13px 13px 54px;
+}
+
+.focused{
+	color:#30aed6;
+	border:#30aed6 solid 3px;
+}
+
+/* Icons ---------------------------------- */
+#name{
+	background-image: url(http://rexkirby.com/kirbyandson/images/name.svg);
+	background-size: 30px 30px;
+	background-position: 11px 8px;
+	background-repeat: no-repeat;
+}
+
+#name:focus{
+	background-image: url(http://rexkirby.com/kirbyandson/images/name.svg);
+	background-size: 30px 30px;
+	background-position: 8px 5px;
+  background-position: 11px 8px;
+	background-repeat: no-repeat;
+}
+
+#email{
+	background-image: url(http://rexkirby.com/kirbyandson/images/email.svg);
+	background-size: 30px 30px;
+	background-position: 11px 8px;
+	background-repeat: no-repeat;
+}
+
+#email:focus{
+	background-image: url(http://rexkirby.com/kirbyandson/images/email.svg);
+	background-size: 30px 30px;
+  background-position: 11px 8px;
+	background-repeat: no-repeat;
+}
+
+#comment{
+	background-image: url(http://rexkirby.com/kirbyandson/images/comment.svg);
+	background-size: 30px 30px;
+	background-position: 11px 8px;
+	background-repeat: no-repeat;
+}
+
+textarea {
+    width: 100%;
+    height: 150px;
+    line-height: 150%;
+    resize:vertical;
+}
+
+input:hover, textarea:hover,
+input:focus, textarea:focus {
+	background-color:white;
+}
+
+#button-blue{
+	font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+	float:left;
+	width: 100%;
+	border: #fbfbfb solid 4px;
+	cursor:pointer;
+	background-color: #4CAF50;
+	color:white;
+	font-size:24px;
+	padding-top:22px;
+	padding-bottom:22px;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+  margin-top:-4px;
+  font-weight:700;
+}
+
+#button-blue:hover{
+	background-color: rgba(0,0,0,0);
+	color: #0493bd;
+}
+
+.submit:hover {
+	color: #3498db;
+}
+
+.ease {
+	width: 0px;
+	height: 74px;
+	background-color: #fbfbfb;
+	-webkit-transition: .3s ease;
+	-moz-transition: .3s ease;
+	-o-transition: .3s ease;
+	-ms-transition: .3s ease;
+	transition: .3s ease;
+}
+
+.submit:hover .ease{
+  width:100%;
+  background-color:white;
+}
+
+@media only screen and (max-width: 580px) {
+	#form-div{
+		left: 3%;
+		margin-right: 3%;
+		width: 88%;
+		margin-left: 0;
+		padding-left: 3%;
+		padding-right: 3%;
+	}
+}
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.inputfile + label {
+    background: #eea849;
+    font: 15px 'Roboto';
+    font-weight: bold;
+    color: white;
+    display: inline-block;
+    padding: 9px 14px;
+    position: relative;
+    text-transform: uppercase;
+}
+
+.inputfile + label {
+	cursor: pointer; /* "hand" cursor */
+}
+
+.upload-preview img {
+  margin-bottom: 15px;
+	display: none;
+	width: auto;
+	height: 300px;
+}
+</style>
 
 
-  <div class="field">
-    <%= form.label :name %>
-    <br>
-    <%= form.text_field :name, id: :product_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <br>
-    <%= form.text_area :description, id: :product_description %>
-  </div>
-
-  <div class="field">
-    <%= form.label :price %>
-    <br>
-    <%= form.text_field :price, id: :product_price %>
-  </div>
 
 
 
-  <div class="field">
-    <%= form.file_field :product_img %>
-  </div>
 
-  <div class="field">
+
+  <%= form_for(@product) do |form| %>
+
+<div id="form-main">
+  <div id="form-div">
+    <form class="form" id="form1">
+
+      <p class="name">
+        <%= form.text_field :name, id: :product_name, class: "validate[required,custom[onlyLetter],length[0,100]] feedback-input", placeholder: "Name" %>
+      </p>
+
+      <p class="email">
+        <%= form.text_field :price, id: :product_price, class: "validate[required,custom[onlyLetter],length[0,100]] feedback-input", placeholder: "Price" %>
+      </p>
+
+      <p class="text">
+        <%= form.text_area :description, id: :product_description, class: "validate[required,length[6,300]] feedback-input", placeholder: "Price" %>
+      </p>
+      <br>
+      <%= form.file_field :product_img, id: "file", class: "inputfile" %>
+<label for="file">Choose a file</label>
+
 <%= form.select(:category_id) do %>
   <% @categories.each do |c| -%>
     <%= content_tag(:option, c.name, value: c.id) %>
   <% end %>
 <% end %>
-  </div>
+<div class="upload-preview">
+		<img src="" alt="">
+</div>
 
-  <div class="actions">
-    <%= form.submit "Save!" %>
+      <div class="submit">
+        <input type="submit" value="SAVE!" id="button-blue"/>
+        <div class="ease"></div>
+      </div>
+    </form>
   </div>
-<% end %>
-</div>
-</div>
+  <% end %>
+
+  <script type="text/javascript">
+    $('.inputfile').change( function(event) {
+	var tmppath = URL.createObjectURL(event.target.files[0]);
+	var val = $(this).val();
+	console.log(val);
+    //get parent using closest and then find img element
+	$('.upload-preview img').show();
+	$('.upload-preview img').attr('src',tmppath);
+});
+
+  </script>
