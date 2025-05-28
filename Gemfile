@@ -13,6 +13,8 @@ gem 'bootstrap-sass'
 
 gem 'puma', '~> 3.7'
 
+gem 'pg'
+
 gem 'faker'
 
 gem 'paperclip', '~> 6.0'
@@ -54,7 +56,6 @@ group :development, :test do
 end
 
 group :production do
-  gem 'pg'
   gem 'rails_12factor'
 end
 
