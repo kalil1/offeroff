@@ -13,7 +13,7 @@ gem 'bootstrap-sass'
 
 gem 'puma', '~> 3.7'
 
-gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
+gem 'faker'
 
 gem 'paperclip', '~> 6.0'
 
